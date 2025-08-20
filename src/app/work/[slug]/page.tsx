@@ -75,14 +75,23 @@ export default async function Project({
         </Button>
         <Heading variant="display-strong-s">{post.metadata.title}</Heading>
       </Column>
-      {post.metadata.images.length > 0 && (
-        <Media
-          priority
-          aspectRatio="16 / 9"
-          radius="m"
-          alt="image"
-          src={post.metadata.images[0]}
-        />
+      {post.metadata.link && (
+        <div style={{ 
+          width: '100%', 
+          height: '600px', 
+          border: '1px solid var(--neutral-border-medium)', 
+          borderRadius: 'var(--radius-m)', 
+          overflow: 'hidden' 
+        }}>
+          <iframe
+            src={post.metadata.link}
+            width="100%"
+            height="100%"
+            style={{ border: 'none' }}
+            title={post.metadata.title}
+            loading="lazy"
+          />
+        </div>
       )}
       <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
         <Flex gap="12" marginBottom="24" vertical="center">

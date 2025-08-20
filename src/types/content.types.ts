@@ -189,6 +189,8 @@ export interface About extends BasePageConfig {
       title: string;
       /** Skill description */
       description: React.ReactNode;
+      /** Icon for the skill */
+      icon?: IconName;
       /** Images related to the skill */
       images?: Array<{
         /** Image source path */

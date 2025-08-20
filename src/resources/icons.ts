@@ -24,6 +24,14 @@ import {
 
 import { FaDiscord, FaGithub, FaLinkedin, FaX, FaThreads } from "react-icons/fa6";
 
+import { 
+  SiNextdotjs, 
+  SiTailwindcss, 
+  SiPython, 
+  SiFramer, 
+  SiSupabase 
+} from "react-icons/si";
+
 export const iconLibrary: Record<string, IconType> = {
   arrowUpRight: HiArrowUpRight,
   arrowRight: HiArrowRight,
@@ -45,7 +53,12 @@ export const iconLibrary: Record<string, IconType> = {
   threads: FaThreads,
   arrowUpRightFromSquare: HiArrowTopRightOnSquare,
   document: HiOutlineDocument,
-  rocket: HiOutlineRocketLaunch
+  rocket: HiOutlineRocketLaunch,
+  nextjs: SiNextdotjs,
+  tailwindcss: SiTailwindcss,
+  python: SiPython,
+  framer: SiFramer,
+  supabase: SiSupabase
 };
 
 export type IconLibrary = typeof iconLibrary;
