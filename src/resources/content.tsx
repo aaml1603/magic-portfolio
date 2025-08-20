@@ -100,6 +100,22 @@ const about: About = {
     title: "Work Experience",
     experiences: [
       {
+        company: "MarketFast",
+        timeframe: "2024 - Present",
+        role: "Creator & Developer",
+        achievements: [
+          <>
+            Developed a comprehensive SaaS growth kit for startup founders using 
+            Framer and modern web technologies.
+          </>,
+          <>
+            Integrated Stripe payment processing and optimized video content 
+            delivery for seamless user experience.
+          </>,
+        ],
+        images: [],
+      },
+      {
         company: "Collabsy.io",
         timeframe: "2025 - Present",
         role: "Founder",
