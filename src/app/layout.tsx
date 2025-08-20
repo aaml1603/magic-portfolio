@@ -15,6 +15,7 @@ export async function generateMetadata() {
     baseURL: baseURL,
     path: home.path,
     image: home.image,
+    keywords: "design engineer, startup founder, AI platforms, UX design, full-stack development, Next.js, React, Miami developer, Collabsy, RealTouchAI",
   });
 }
 
@@ -93,6 +94,12 @@ export default async function RootLayout({
               })();
             `,
           }}
+        />
+        <script
+          defer
+          data-website-id="68a56199dce1f0f47b3ded86"
+          data-domain="andresmen.dev"
+          src="https://datafa.st/js/script.js"
         />
       </head>
       <Providers>

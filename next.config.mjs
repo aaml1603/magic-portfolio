@@ -13,6 +13,16 @@ const nextConfig = {
     compiler: "modern",
     silenceDeprecations: ["legacy-js-api"],
   },
+  // SEO optimizations
+  trailingSlash: false,
+  compress: true,
+  poweredByHeader: false,
+  generateEtags: false,
+  // Image optimization
+  images: {
+    formats: ["image/webp", "image/avif"],
+    minimumCacheTTL: 60,
+  },
 };
 
 export default withMDX(nextConfig);

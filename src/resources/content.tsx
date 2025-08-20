@@ -6,7 +6,7 @@ const person: Person = {
   name: `Andres Mendez`,
   role: "Design Engineer",
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
+  email: "andresmendezdev@gmail.com",
   location: "America/New_York", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Spanish"], // optional: Leave the array empty if you don't want to display languages
 };
@@ -46,8 +46,8 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
+  title: `${person.name} - Design Engineer & Startup Founder`,
+  description: `Design engineer and startup founder specializing in AI-powered platforms, user experience design, and full-stack development. Founder of Collabsy and RealTouchAI.`,
   headline: <>Building bridges between design and code</>,
   featured: {
     display: true,
@@ -60,7 +60,7 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Andres, a design engineer and startup founder
+      I'm Andres, a design engineer and startup founder from Miami
       who crafts intuitive user experiences. I build innovative
       <br /> AI-powered platforms and love creating digital solutions.
     </>
@@ -70,8 +70,8 @@ const home: Home = {
 const about: About = {
   path: "/about",
   label: "About",
-  title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from Miami, FL`,
+  title: `About ${person.name} - Design Engineer & AI Startup Founder`,
+  description: `Learn about ${person.name}, a design engineer and startup founder from Miami specializing in AI-powered platforms, UX design, and full-stack development. Founder of Collabsy and RealTouchAI.`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -203,8 +203,8 @@ const blog: Blog = {
 const work: Work = {
   path: "/work",
   label: "Work",
-  title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
+  title: `Projects by ${person.name} - AI Platforms & Design Engineering`,
+  description: `Explore design and development projects by ${person.name}, including AI-powered platforms like Collabsy and RealTouchAI, showcasing expertise in UX design and full-stack development.`,
   // Create new project pages by adding a new .mdx file to app/blog/posts
   // All projects will be listed on the /home and /work routes
 };
