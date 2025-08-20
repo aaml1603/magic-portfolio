@@ -101,7 +101,7 @@ const about: About = {
     experiences: [
       {
         company: "Collabsy.io",
-        timeframe: "2023 - Present",
+        timeframe: "2025 - Present",
         role: "Founder",
         achievements: [
           <>
@@ -117,7 +117,7 @@ const about: About = {
       },
       {
         company: "RealTouchAI.com",
-        timeframe: "2022 - Present",
+        timeframe: "2024 - Present",
         role: "Founder",
         achievements: [
           <>
