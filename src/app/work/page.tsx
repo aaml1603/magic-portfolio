@@ -1,4 +1,4 @@
-import { Column, Meta, Schema } from "@once-ui-system/core";
+import { Column, Meta, Schema, Text, Button, RevealFx } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { Projects } from "@/components/work/Projects";
 
@@ -29,6 +29,26 @@ export default function Work() {
         }}
       />
       <Projects />
+      <RevealFx translateY="16" delay={0.2}>
+        <Column fillWidth paddingY="32" horizontal="center">
+          <Text 
+            align="center" 
+            variant="heading-default-l" 
+            onBackground="neutral-weak"
+            wrap="balance"
+          >
+            Like what you see?{" "}
+            <Button 
+              href="https://x.com/andresmendezdev" 
+              variant="tertiary" 
+              size="m"
+              style={{ display: "inline", padding: 0, textDecoration: "underline", fontSize: "inherit", border: "none" }}
+            >
+              Let's work together!
+            </Button>
+          </Text>
+        </Column>
+      </RevealFx>
     </Column>
   );
 }
