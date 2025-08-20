@@ -170,6 +170,7 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
       >
         <Flex fillWidth maxWidth={24} mobileDirection="column" gap="8">
           <Input
+            id="newsletter-email"
             type="email"
             placeholder="Email"
             value={email}
