@@ -3,7 +3,7 @@ import { getPosts } from "@/utils/utils";
 import { Meta, Schema, AvatarGroup, Button, Column, Flex, Heading, Media, Text } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
-import { ScrollToHash, CustomMDX } from "@/components";
+import { ScrollToHash, CustomMDX, ClickToScrollIframe } from "@/components";
 import { Metadata } from "next";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
@@ -76,22 +76,17 @@ export default async function Project({
         <Heading variant="display-strong-s">{post.metadata.title}</Heading>
       </Column>
       {post.metadata.link && (
-        <div style={{ 
-          width: '100%', 
-          height: '600px', 
-          border: '1px solid var(--neutral-border-medium)', 
-          borderRadius: 'var(--radius-m)', 
-          overflow: 'hidden' 
-        }}>
-          <iframe
-            src={post.metadata.link}
-            width="100%"
-            height="100%"
-            style={{ border: 'none' }}
-            title={post.metadata.title}
-            loading="lazy"
-          />
-        </div>
+        <ClickToScrollIframe
+          src={post.metadata.link}
+          title={post.metadata.title}
+          containerStyle={{ 
+            width: '100%', 
+            height: '600px', 
+            border: '1px solid var(--neutral-border-medium)', 
+            borderRadius: 'var(--radius-m)', 
+            overflow: 'hidden' 
+          }}
+        />
       )}
       <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
         <Flex gap="12" marginBottom="24" vertical="center">

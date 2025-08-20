@@ -23,6 +23,8 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
   const [email, setEmail] = useState<string>("");
   const [error, setError] = useState<string>("");
   const [touched, setTouched] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
   const validateEmail = (email: string): boolean => {
     if (email === "") {
@@ -50,6 +52,43 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
     setTouched(true);
     if (!validateEmail(email)) {
       setError("Please enter a valid email address.");
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!validateEmail(email) || email === "") {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setError("");
+
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to subscribe');
+      }
+
+      setIsSuccess(true);
+      setEmail("");
+    } catch (error) {
+      setError(error instanceof Error ? error.message : 'Failed to subscribe. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -127,20 +166,15 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
           display: "flex",
           justifyContent: "center",
         }}
-        action={mailchimp.action}
-        method="post"
-        id="mc-embedded-subscribe-form"
-        name="mc-embedded-subscribe-form"
+        onSubmit={handleSubmit}
       >
-        <Flex id="mc_embed_signup_scroll" fillWidth maxWidth={24} mobileDirection="column" gap="8">
+        <Flex fillWidth maxWidth={24} mobileDirection="column" gap="8">
           <Input
-            formNoValidate
-            id="mce-EMAIL"
-            name="EMAIL"
             type="email"
             placeholder="Email"
-            required
+            value={email}
             onChange={(e) => {
+              setEmail(e.target.value);
               if (error) {
                 handleChange(e);
               } else {
@@ -149,37 +183,23 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
             }}
             onBlur={handleBlur}
             errorMessage={error}
+            disabled={isSubmitting || isSuccess}
           />
-          <div style={{ display: "none" }}>
-            <input
-              type="checkbox"
-              readOnly
-              name="group[3492][1]"
-              id="mce-group[3492]-3492-0"
-              value=""
-              checked
-            />
-          </div>
-          <div id="mce-responses" className="clearfalse">
-            <div className="response" id="mce-error-response" style={{ display: "none" }}></div>
-            <div className="response" id="mce-success-response" style={{ display: "none" }}></div>
-          </div>
-          <div aria-hidden="true" style={{ position: "absolute", left: "-5000px" }}>
-            <input
-              type="text"
-              readOnly
-              name="b_c1a5a210340eb6c7bff33b2ba_0462d244aa"
-              tabIndex={-1}
-              value=""
-            />
-          </div>
-          <div className="clear">
-            <Flex height="48" vertical="center">
-              <Button id="mc-embedded-subscribe" value="Subscribe" size="m" fillWidth>
-                Subscribe
-              </Button>
-            </Flex>
-          </div>
+          <Flex height="48" vertical="center">
+            <Button 
+              type="submit" 
+              size="m" 
+              fillWidth
+              disabled={isSubmitting || isSuccess || !email}
+            >
+              {isSubmitting ? "Subscribing..." : isSuccess ? "Subscribed!" : "Subscribe"}
+            </Button>
+          </Flex>
+          {isSuccess && (
+            <Text onBackground="success-strong" style={{ textAlign: "center" }}>
+              Thank you for subscribing!
+            </Text>
+          )}
         </Flex>
       </form>
     </Column>

@@ -9,6 +9,7 @@ import {
   SmartLink,
   Text,
 } from "@once-ui-system/core";
+import { ClickToScrollIframe } from "./ClickToScrollIframe";
 
 interface ProjectCardProps {
   href: string;
@@ -33,22 +34,17 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <Column fillWidth gap="m">
       {link ? (
-        <div style={{ 
-          width: '100%', 
-          height: '600px', 
-          border: '1px solid var(--neutral-border-medium)', 
-          borderRadius: 'var(--radius-m)', 
-          overflow: 'hidden' 
-        }}>
-          <iframe
-            src={link}
-            width="100%"
-            height="100%"
-            style={{ border: 'none' }}
-            title={title}
-            loading="lazy"
-          />
-        </div>
+        <ClickToScrollIframe
+          src={link}
+          title={title}
+          containerStyle={{ 
+            width: '100%', 
+            height: '600px', 
+            border: '1px solid var(--neutral-border-medium)', 
+            borderRadius: 'var(--radius-m)', 
+            overflow: 'hidden' 
+          }}
+        />
       ) : (
         <Carousel
           sizes="(max-width: 960px) 100vw, 960px"
