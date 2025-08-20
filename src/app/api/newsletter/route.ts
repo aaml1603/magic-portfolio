@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_KEY);
+const resend = new Resend(process.env.RESEND_KEY || 'placeholder_key');
 
 export async function POST(request: NextRequest) {
   try {
@@ -20,6 +20,15 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { error: 'Invalid email format' },
         { status: 400 }
+      );
+    }
+
+    // Check if Resend API key is configured
+    if (!process.env.RESEND_KEY || process.env.RESEND_KEY === 'placeholder_key') {
+      console.log('Newsletter signup attempted but Resend API key not configured:', email);
+      return NextResponse.json(
+        { message: 'Newsletter signup temporarily unavailable' },
+        { status: 200 }
       );
     }
 

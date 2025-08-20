@@ -13,7 +13,7 @@ const person: Person = {
 
 const newsletter: Newsletter = {
   display: true,
-  title: <>Subscribe to {person.name}'s Newsletter</>,
+  title: <>Subscribe to {person.name}&apos;s Newsletter</>,
   description: (
     <>
       I occasionally write about design, technology, and share thoughts on the
@@ -60,7 +60,7 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Andres, a design engineer and startup founder from Miami
+      I&apos;m Andres, a design engineer and startup founder from Miami
       who crafts intuitive user experiences. I build innovative
       <br /> AI-powered platforms and love creating digital solutions.
     </>
@@ -88,7 +88,7 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        I was born in Caracas, Venezuela but now live in Miami. I'm a design engineer with a passion for
+        I was born in Caracas, Venezuela but now live in Miami. I&apos;m a design engineer with a passion for
         transforming complex challenges into simple, elegant design solutions.
         My work spans digital interfaces, interactive experiences, and the
         convergence of design and technology.

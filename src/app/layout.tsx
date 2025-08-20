@@ -15,7 +15,6 @@ export async function generateMetadata() {
     baseURL: baseURL,
     path: home.path,
     image: home.image,
-    keywords: "design engineer, startup founder, AI platforms, UX design, full-stack development, Next.js, React, Miami developer, Collabsy, RealTouchAI",
   });
 }
 

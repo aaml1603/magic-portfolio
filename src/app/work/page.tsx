@@ -44,7 +44,7 @@ export default function Work() {
               size="m"
               style={{ display: "inline", padding: 0, textDecoration: "underline", fontSize: "inherit", border: "none" }}
             >
-              Let's work together!
+              Let&apos;s work together!
             </Button>
           </Text>
         </Column>
